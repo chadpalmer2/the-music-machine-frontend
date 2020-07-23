@@ -1,0 +1,22 @@
+.key {
+    background-color: black;
+    min-height: 25px;
+    min-width: 25px;
+    display: inline-block;
+}
+
+.selected {
+    background-color: white;
+}
+
+.frozen {
+    opacity: 0.60;
+}
+
+.playing {
+    background-color: red;
+}
+
+#soundboard {
+    background-color: grey;
+}
