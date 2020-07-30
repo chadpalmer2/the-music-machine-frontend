@@ -7,225 +7,74 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <h1>The Music Machine</h1>
-        <div id="soundboard">
-            <div class="row" id="row-0">
-                <div class="key row-0 col-0" id="button-0-0"></div>
-                <div class="key row-0 col-1" id="button-0-1"></div>
-                <div class="key row-0 col-2" id="button-0-2"></div>
-                <div class="key row-0 col-3" id="button-0-3"></div>
-                <div class="key row-0 col-4" id="button-0-4"></div>
-                <div class="key row-0 col-5" id="button-0-5"></div>
-                <div class="key row-0 col-6" id="button-0-6"></div>
-                <div class="key row-0 col-7" id="button-0-7"></div>
-                <div class="key row-0 col-8" id="button-0-8"></div>
-                <div class="key row-0 col-9" id="button-0-9"></div>
-                <div class="key row-0 col-10" id="button-0-10"></div>
-                <div class="key row-0 col-11" id="button-0-11"></div>
-                <div class="key row-0 col-12" id="button-0-12"></div>
-                <div class="key row-0 col-13" id="button-0-13"></div>
-                <div class="key row-0 col-14" id="button-0-14"></div>
-                <div class="key row-0 col-15" id="button-0-15"></div>
+        <div id="container">
+            <div id="sidebar">
+                <h2 id="sidebar-title">Songs</h2>
+                <div id="song-list"></div>
             </div>
-            <div class="row" id="row-1">
-                <div class="key row-1 col-0" id="button-1-0"></div>
-                <div class="key row-1 col-1" id="button-1-1"></div>
-                <div class="key row-1 col-2" id="button-1-2"></div>
-                <div class="key row-1 col-3" id="button-1-3"></div>
-                <div class="key row-1 col-4" id="button-1-4"></div>
-                <div class="key row-1 col-5" id="button-1-5"></div>
-                <div class="key row-1 col-6" id="button-1-6"></div>
-                <div class="key row-1 col-7" id="button-1-7"></div>
-                <div class="key row-1 col-8" id="button-1-8"></div>
-                <div class="key row-1 col-9" id="button-1-9"></div>
-                <div class="key row-1 col-10" id="button-1-10"></div>
-                <div class="key row-1 col-11" id="button-1-11"></div>
-                <div class="key row-1 col-12" id="button-1-12"></div>
-                <div class="key row-1 col-13" id="button-1-13"></div>
-                <div class="key row-1 col-14" id="button-1-14"></div>
-                <div class="key row-1 col-15" id="button-1-15"></div>
-            </div>
-            <div class="row" id="row-2">
-                <div class="key row-2 col-0" id="button-2-0"></div>
-                <div class="key row-2 col-1" id="button-2-1"></div>
-                <div class="key row-2 col-2" id="button-2-2"></div>
-                <div class="key row-2 col-3" id="button-2-3"></div>
-                <div class="key row-2 col-4" id="button-2-4"></div>
-                <div class="key row-2 col-5" id="button-2-5"></div>
-                <div class="key row-2 col-6" id="button-2-6"></div>
-                <div class="key row-2 col-7" id="button-2-7"></div>
-                <div class="key row-2 col-8" id="button-2-8"></div>
-                <div class="key row-2 col-9" id="button-2-9"></div>
-                <div class="key row-2 col-10" id="button-2-10"></div>
-                <div class="key row-2 col-11" id="button-2-11"></div>
-                <div class="key row-2 col-12" id="button-2-12"></div>
-                <div class="key row-2 col-13" id="button-2-13"></div>
-                <div class="key row-2 col-14" id="button-2-14"></div>
-                <div class="key row-2 col-15" id="button-2-15"></div>
-            </div>
-            <div class="row" id="row-3">
-                <div class="key row-3 col-0" id="button-3-0"></div>
-                <div class="key row-3 col-1" id="button-3-1"></div>
-                <div class="key row-3 col-2" id="button-3-2"></div>
-                <div class="key row-3 col-3" id="button-3-3"></div>
-                <div class="key row-3 col-4" id="button-3-4"></div>
-                <div class="key row-3 col-5" id="button-3-5"></div>
-                <div class="key row-3 col-6" id="button-3-6"></div>
-                <div class="key row-3 col-7" id="button-3-7"></div>
-                <div class="key row-3 col-8" id="button-3-8"></div>
-                <div class="key row-3 col-9" id="button-3-9"></div>
-                <div class="key row-3 col-10" id="button-3-10"></div>
-                <div class="key row-3 col-11" id="button-3-11"></div>
-                <div class="key row-3 col-12" id="button-3-12"></div>
-                <div class="key row-3 col-13" id="button-3-13"></div>
-                <div class="key row-3 col-14" id="button-3-14"></div>
-                <div class="key row-3 col-15" id="button-3-15"></div>
-            </div>
-            <div class="row" id="row-4">
-                <div class="key row-4 col-0" id="button-4-0"></div>
-                <div class="key row-4 col-1" id="button-4-1"></div>
-                <div class="key row-4 col-2" id="button-4-2"></div>
-                <div class="key row-4 col-3" id="button-4-3"></div>
-                <div class="key row-4 col-4" id="button-4-4"></div>
-                <div class="key row-4 col-5" id="button-4-5"></div>
-                <div class="key row-4 col-6" id="button-4-6"></div>
-                <div class="key row-4 col-7" id="button-4-7"></div>
-                <div class="key row-4 col-8" id="button-4-8"></div>
-                <div class="key row-4 col-9" id="button-4-9"></div>
-                <div class="key row-4 col-10" id="button-4-10"></div>
-                <div class="key row-4 col-11" id="button-4-11"></div>
-                <div class="key row-4 col-12" id="button-4-12"></div>
-                <div class="key row-4 col-13" id="button-4-13"></div>
-                <div class="key row-4 col-14" id="button-4-14"></div>
-                <div class="key row-4 col-15" id="button-4-15"></div>
-            </div>
-            <div class="row" id="row-5">
-                <div class="key row-5 col-0" id="button-5-0"></div>
-                <div class="key row-5 col-1" id="button-5-1"></div>
-                <div class="key row-5 col-2" id="button-5-2"></div>
-                <div class="key row-5 col-3" id="button-5-3"></div>
-                <div class="key row-5 col-4" id="button-5-4"></div>
-                <div class="key row-5 col-5" id="button-5-5"></div>
-                <div class="key row-5 col-6" id="button-5-6"></div>
-                <div class="key row-5 col-7" id="button-5-7"></div>
-                <div class="key row-5 col-8" id="button-5-8"></div>
-                <div class="key row-5 col-9" id="button-5-9"></div>
-                <div class="key row-5 col-10" id="button-5-10"></div>
-                <div class="key row-5 col-11" id="button-5-11"></div>
-                <div class="key row-5 col-12" id="button-5-12"></div>
-                <div class="key row-5 col-13" id="button-5-13"></div>
-                <div class="key row-5 col-14" id="button-5-14"></div>
-                <div class="key row-5 col-15" id="button-5-15"></div>
-            </div>
-            <div class="row" id="row-6">
-                <div class="key row-6 col-0" id="button-6-0"></div>
-                <div class="key row-6 col-1" id="button-6-1"></div>
-                <div class="key row-6 col-2" id="button-6-2"></div>
-                <div class="key row-6 col-3" id="button-6-3"></div>
-                <div class="key row-6 col-4" id="button-6-4"></div>
-                <div class="key row-6 col-5" id="button-6-5"></div>
-                <div class="key row-6 col-6" id="button-6-6"></div>
-                <div class="key row-6 col-7" id="button-6-7"></div>
-                <div class="key row-6 col-8" id="button-6-8"></div>
-                <div class="key row-6 col-9" id="button-6-9"></div>
-                <div class="key row-6 col-10" id="button-6-10"></div>
-                <div class="key row-6 col-11" id="button-6-11"></div>
-                <div class="key row-6 col-12" id="button-6-12"></div>
-                <div class="key row-6 col-13" id="button-6-13"></div>
-                <div class="key row-6 col-14" id="button-6-14"></div>
-                <div class="key row-6 col-15" id="button-6-15"></div>
-            </div>
-            <div class="row" id="row-7">
-                <div class="key row-7 col-0" id="button-7-0"></div>
-                <div class="key row-7 col-1" id="button-7-1"></div>
-                <div class="key row-7 col-2" id="button-7-2"></div>
-                <div class="key row-7 col-3" id="button-7-3"></div>
-                <div class="key row-7 col-4" id="button-7-4"></div>
-                <div class="key row-7 col-5" id="button-7-5"></div>
-                <div class="key row-7 col-6" id="button-7-6"></div>
-                <div class="key row-7 col-7" id="button-7-7"></div>
-                <div class="key row-7 col-8" id="button-7-8"></div>
-                <div class="key row-7 col-9" id="button-7-9"></div>
-                <div class="key row-7 col-10" id="button-7-10"></div>
-                <div class="key row-7 col-11" id="button-7-11"></div>
-                <div class="key row-7 col-12" id="button-7-12"></div>
-                <div class="key row-7 col-13" id="button-7-13"></div>
-                <div class="key row-7 col-14" id="button-7-14"></div>
-                <div class="key row-7 col-15" id="button-7-15"></div>
-            </div>
-            <div class="row" id="row-8">
-                <div class="key row-8 col-0" id="button-8-0"></div>
-                <div class="key row-8 col-1" id="button-8-1"></div>
-                <div class="key row-8 col-2" id="button-8-2"></div>
-                <div class="key row-8 col-3" id="button-8-3"></div>
-                <div class="key row-8 col-4" id="button-8-4"></div>
-                <div class="key row-8 col-5" id="button-8-5"></div>
-                <div class="key row-8 col-6" id="button-8-6"></div>
-                <div class="key row-8 col-7" id="button-8-7"></div>
-                <div class="key row-8 col-8" id="button-8-8"></div>
-                <div class="key row-8 col-9" id="button-8-9"></div>
-                <div class="key row-8 col-10" id="button-8-10"></div>
-                <div class="key row-8 col-11" id="button-8-11"></div>
-                <div class="key row-8 col-12" id="button-8-12"></div>
-                <div class="key row-8 col-13" id="button-8-13"></div>
-                <div class="key row-8 col-14" id="button-8-14"></div>
-                <div class="key row-8 col-15" id="button-8-15"></div>
-            </div>
-            <div class="row" id="row-9">
-                <div class="key row-9 col-0" id="button-9-0"></div>
-                <div class="key row-9 col-1" id="button-9-1"></div>
-                <div class="key row-9 col-2" id="button-9-2"></div>
-                <div class="key row-9 col-3" id="button-9-3"></div>
-                <div class="key row-9 col-4" id="button-9-4"></div>
-                <div class="key row-9 col-5" id="button-9-5"></div>
-                <div class="key row-9 col-6" id="button-9-6"></div>
-                <div class="key row-9 col-7" id="button-9-7"></div>
-                <div class="key row-9 col-8" id="button-9-8"></div>
-                <div class="key row-9 col-9" id="button-9-9"></div>
-                <div class="key row-9 col-10" id="button-9-10"></div>
-                <div class="key row-9 col-11" id="button-9-11"></div>
-                <div class="key row-9 col-12" id="button-9-12"></div>
-                <div class="key row-9 col-13" id="button-9-13"></div>
-                <div class="key row-9 col-14" id="button-9-14"></div>
-                <div class="key row-9 col-15" id="button-9-15"></div>
-            </div>
-            <div class="row" id="row-10">
-                <div class="key row-10 col-0" id="button-10-0"></div>
-                <div class="key row-10 col-1" id="button-10-1"></div>
-                <div class="key row-10 col-2" id="button-10-2"></div>
-                <div class="key row-10 col-3" id="button-10-3"></div>
-                <div class="key row-10 col-4" id="button-10-4"></div>
-                <div class="key row-10 col-5" id="button-10-5"></div>
-                <div class="key row-10 col-6" id="button-10-6"></div>
-                <div class="key row-10 col-7" id="button-10-7"></div>
-                <div class="key row-10 col-8" id="button-10-8"></div>
-                <div class="key row-10 col-9" id="button-10-9"></div>
-                <div class="key row-10 col-10" id="button-10-10"></div>
-                <div class="key row-10 col-11" id="button-10-11"></div>
-                <div class="key row-10 col-12" id="button-10-12"></div>
-                <div class="key row-10 col-13" id="button-10-13"></div>
-                <div class="key row-10 col-14" id="button-10-14"></div>
-                <div class="key row-10 col-15" id="button-10-15"></div>
-            </div>
-            <div class="row" id="row-11">
-                <div class="key row-11 col-0" id="button-11-0"></div>
-                <div class="key row-11 col-1" id="button-11-1"></div>
-                <div class="key row-11 col-2" id="button-11-2"></div>
-                <div class="key row-11 col-3" id="button-11-3"></div>
-                <div class="key row-11 col-4" id="button-11-4"></div>
-                <div class="key row-11 col-5" id="button-11-5"></div>
-                <div class="key row-11 col-6" id="button-11-6"></div>
-                <div class="key row-11 col-7" id="button-11-7"></div>
-                <div class="key row-11 col-8" id="button-11-8"></div>
-                <div class="key row-11 col-9" id="button-11-9"></div>
-                <div class="key row-11 col-10" id="button-11-10"></div>
-                <div class="key row-11 col-11" id="button-11-11"></div>
-                <div class="key row-11 col-12" id="button-11-12"></div>
-                <div class="key row-11 col-13" id="button-11-13"></div>
-                <div class="key row-11 col-14" id="button-11-14"></div>
-                <div class="key row-11 col-15" id="button-11-15"></div>
+            <div id="center-column">
+                <div id="title-container">
+                    <h1 id="title">The Music Machine</h1>
+                    <div id="instrument-panel">
+                        <p id="intro-text">Add an instrument to begin!</p>
+                        <form id="instrument-panel-form">
+                            <select name="instruments" id="instrument-panel-list">
+                            <option value="synth">Synth</option>
+                            <option value="rip">Rip Lmao</option>
+                            </select>
+                            <input class="button" type="submit" value="Add Instrument">
+                        </form>
+                    </div>
+                </div>
+                <div id="machine">
+                    <div id="machine-save-panel">
+                        <div id="play-buttons">
+                            <button id="play-song-button">Play Song</button>
+                            <br>
+                            <button id="save-new-button">Save as New Song</button>
+                            <br>
+                            <button id="save-update-button">Overwrite Existing Song</button>
+                        </div>
+                        <div id="stop-button">
+                            <button class="hidden" id="stop-button">Stop</button>
+                        </div>
+                    </div>
+                    <div id="machine-center-panel">
+                        <div id="inst-board"></div>
+                        <div class="soundboard-hidden" id="soundboard"></div>
+                    </div>
+                    <div id="machine-edit-panel">
+                        <form id="edit-song-name-form">
+                            <input type="text" id="edit-song-name-form-text">
+                            <input class="button" type="submit" value="Change Song Name">
+                        </form>
+                        <form id="bpm-form">
+                            <input type="text" id="bpm-form-value" value="120">
+                            <input class="button" type="submit" value="Change BPM">
+                        </form>
+                        <br>
+                        <button id="play-instrument-button">Play Instrument</button>
+                        <br>
+                        <div id="octave-changer">
+                            <button id="octave-up-button">Octave Up</button>
+                            <button id="octave-down-button">Octave Down</button>
+                        </div>
+                        <div id="volume-changer">
+                            <button id="volume-up-button">Volume Up</button>
+                            <button id="volume-down-button">Volume Down</button>
+                        </div>
+                        <br>
+                        <form id="edit-instrument-name-form">
+                            <input type="text" id="edit-instrument-name-form-text">
+                            <input class="button" type="submit" value="Change Instrument Name">
+                        </form>
+                        <button id="delete-instrument-button">Delete Instrument</button>
+                    </div>
+                </div>
+                <div id="footer">
+                    <p>Made by Chad Palmer for Yale x Flatiron Web Development Bootcamp, 2020</p>
+                </div>
             </div>
         </div>
-        <button id="play-button">Play</button>
     </body>
 </html>

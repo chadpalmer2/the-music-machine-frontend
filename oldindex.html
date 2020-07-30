@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Music Machine</title>
+        <script src="./node_modules/tone/build/Tone.js"></script>
+        <script src="src/script.js" defer></script>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div class="sidebar" id="sidebar">
+            <h2 id="sidebar-title">Songs</h2>
+            <div class="song-list" id="song-list">
+            </div>
+        </div>
+        <div id="center-column">
+            <div class="title" id="title">
+                <h1>The Music Machine</h1>
+                <p>Add an instrument to begin!</p>
+            </div>
+            <div id="machine">
+                <div id="inst-board">
+                    <div class="inst-button" id="new-inst">New Instrument</div>
+                </div>
+                <div class="soundboard-hidden" id="soundboard"></div>
+            </div>
+            <div id="buttonboard">
+                <div id="edit-panel">
+                    <button class="hidden" id="play-song-button">Play Song</button>
+                    <button class="hidden" id="play-instrument-button">Play Instrument</button>
+                    <br>
+                    <div id="edit-inst-panel">
+                        <div id="bpm-changer">
+                            <form class="hidden" id="bpm-form">
+                                <input type="text" id="bpm-form-value" value="120">
+                                <input type="submit" value="Change BPM">
+                            </form>
+                        </div>
+                        <div id="octave-changer">
+                            <button class="hidden" id="octave-up-button">Octave Up</button>
+                            <button class="hidden" id="octave-down-button">Octave Down</button>
+                        </div>
+                        <form class="hidden" id="edit-name-form">
+                            <input type="text" id="edit-name-form-text">
+                            <input type="submit" value="Change Instrument Name">
+                        </form>
+                        <button class="hidden" id="delete-instrument-button">Delete Instrument</button>
+                    </div>
+                    <br>
+                    <form class="hidden" id="save-song-form">
+                        <input type="text" id="save-song-form-name" value="Song Name">
+                        <input type="submit" value="Save Song">
+                    </form>
+                </div>
+                <button class="hidden" id="stop-button">Stop</button>
+            </div>
+        </div>
+    </body>
+</html>
