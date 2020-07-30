@@ -199,6 +199,7 @@ class DrumKit extends Instrument {
 class Player {
     static setBPM(newBPM) {
         Tone.Transport.bpm.value = newBPM
+        document.querySelector("form#bpm-form input#bpm-form-value").value = Math.floor(Player.getBPM())
     } 
 
     static getBPM() {
@@ -250,6 +251,7 @@ class DOMHandler {
         document.querySelector("div#soundboard").classList.remove("soundboard")
         document.querySelectorAll(".listing").forEach(listing => listing.classList.remove("listing-active"))
         Instrument.setName("New Song")
+        Player.setBPM(120)
     }
 
     static setNotPlaying() {
@@ -509,8 +511,6 @@ function setupAudio() {
             } else {
                 alert("BPM must be an integer between 0 and 360.")
             }
-
-            document.querySelector("form#bpm-form input#bpm-form-value").value = Math.floor(Player.getBPM())
         }
 
         event.preventDefault()
@@ -533,6 +533,7 @@ function setupAudio() {
     })
 
     document.querySelector("#delete-instrument-button").addEventListener('click', () => !DOMHandler.editPanelFrozen() ? DOMHandler.deleteInstrument() : 0)
+    document.querySelector("#start-over-button").addEventListener('click', () => !DOMHandler.editPanelFrozen() ? Instrument.emptyInstruments() : 0)
 }
 
 // Wait for user input to begin audio setup
