@@ -1,19 +1,11 @@
-# the-music-machine-frontend
+# The Music Machine - Frontend
 
+The Music Machine is a web application for creating, editing, and saving simple, looping beats. 
 
-```js
-const drum = [
-    "crash",
-    "high tom",
-    "medium tom",
-    "low tom",
-    "open hihat",
-    "closed hihat",
-    "snare",
-    "kick"
-]
+# Installation
 
-```
+Git pull both this repository and the corresponding [Ruby On Rails backend](https://github.com/chadpalmer2/the-music-machine). Launch the backend on localhost and open index.html in the browser of your choice.
 
-pitch: https://docs.google.com/document/d/1ezaYnml11gOlsxtTbCqwJoZvuTvO4gJRuOaxlrBAgyw/edit
-checkin: https://docs.google.com/spreadsheets/d/1vdkwgz4z06BYKYmr13eLKtWDAyzsPAPKquIE6dSOX50/edit#gid=80255631
+# Usage
+
+For usage, consult [this demo video](https://www.youtube.com/watch?v=leRIVEOUZWE&feature=youtu.be).
