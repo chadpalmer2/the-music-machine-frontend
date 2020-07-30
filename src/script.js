@@ -12,6 +12,7 @@ let drumHits = ["crash", "high tom", "medium tom", "low tom", "open hihat", "clo
 
 // Instrument classes
 
+let name = "New Song"
 const instruments = []
 class Instrument {
     constructor(name, sound, trackArr) {
@@ -25,6 +26,15 @@ class Instrument {
         this.loops = []
         this.trackArr = trackArr
         this.soundBoard = new Array(trackArr.length).fill(0).map(e => new Array(16).fill(0))
+    }
+
+    static name() {
+        return name
+    }
+
+    static setName(newName) {
+        name = newName
+        document.querySelector("div#song-name-container").innerText = name
     }
 
     static all() {
@@ -141,31 +151,42 @@ class Instrument {
         })
     }
 
-    static loadSong(song) {
+    static emptyInstruments() {
         while (Instrument.activeInstrument()) {
             DOMHandler.deleteInstrument()
         }
+
         Instrument.all().length = 0
+    }
+
+    static loadSong(song) {
+        const songDiv = DOMHandler.activeSong()
+
+        this.emptyInstruments()
 
         Player.setBPM(song.bpm)
         document.querySelector("form#bpm-form input#bpm-form-value").value = Math.floor(Player.getBPM())
+        Instrument.setName(song.name)
 
         song.instruments.forEach(i => {
             const newInst = new SynthKeyboard
 
             newInst.name = i.name
             newInst.instrument = i.instrument
-            newInst.soundBoard = i.notes
+            newInst.soundBoard = JSON.parse(i.notes)
             newInst.trackArr = pitches[i.octave]
 
             DOMHandler.addInstrument(newInst)
         })
+
+        songDiv.classList.add("listing-active")
+        document.querySelectorAll("div#update-buttons button").forEach(b => b.classList.remove("hidden"))
     }
 }
 
 class SynthKeyboard extends Instrument {
     constructor() {
-        super("Synth", new Tone.PolySynth(Tone.Synth).toDestination(), pitches[3])
+        super("synth", new Tone.PolySynth(Tone.Synth).toDestination(), pitches[3])
     }
 }
 
@@ -176,7 +197,6 @@ class DrumKit extends Instrument {
 }
 
 class Player {
-
     static setBPM(newBPM) {
         Tone.Transport.bpm.value = newBPM
     } 
@@ -225,9 +245,11 @@ class DOMHandler {
         document.querySelector("div#machine").classList.add("frozen")
         document.querySelectorAll("div#play-buttons button").forEach(b => b.classList.remove("hidden"))
         document.querySelector("div#stop-button button").classList.add("hidden")
+        document.querySelectorAll("div#update-buttons button").forEach(b => b.classList.add("hidden"))
         document.querySelector("div#soundboard").classList.add("soundboard-hidden")
         document.querySelector("div#soundboard").classList.remove("soundboard")
         document.querySelectorAll(".listing").forEach(listing => listing.classList.remove("listing-active"))
+        Instrument.setName("New Song")
     }
 
     static setNotPlaying() {
@@ -235,6 +257,7 @@ class DOMHandler {
         document.querySelector("div#machine").classList.remove("frozen")
         document.querySelectorAll("div#play-buttons button").forEach(b => b.classList.remove("hidden"))
         document.querySelector("div#stop-button button").classList.add("hidden")
+        DOMHandler.activeSong() ? document.querySelectorAll("div#update-buttons button").forEach(b => b.classList.remove("hidden")) : 0
         document.querySelector("div#soundboard").classList.remove("soundboard-hidden")
         document.querySelector("div#soundboard").classList.add("soundboard")
         document.querySelector("form#instrument-panel-form").classList.remove("frozen")
@@ -245,6 +268,7 @@ class DOMHandler {
         document.querySelector("div#machine").classList.remove("frozen")
         document.querySelectorAll("div#play-buttons button").forEach(b => b.classList.add("hidden"))
         document.querySelector("div#stop-button button").classList.remove("hidden")
+        document.querySelectorAll("div#update-buttons button").forEach(b => b.classList.add("hidden"))
         document.querySelector("div#soundboard").classList.add("soundboard")
         document.querySelector("form#instrument-panel-form").classList.add("frozen")
     }
@@ -324,8 +348,13 @@ class DOMHandler {
         BackendHandler.loadSong(id)
     }
 
+    static activeSong() {
+        return document.querySelectorAll(".listing-active")[0]
+    }
+
     static fillSidebar(json) {
         const songList = document.querySelector("div#song-list")
+        songList.innerHTML = ""
 
         json.forEach(song => {
             const listingDiv = document.createElement("div")
@@ -338,13 +367,85 @@ class DOMHandler {
             songList.append(listingDiv)
         })
     }
-
 }
 
 class BackendHandler {
+    static songData() {
+        const songData = {
+            song: {
+                name: Instrument.name(),
+                bpm: Player.getBPM(),
+                instruments_attributes: []
+            }
+        }
 
-    static saveSong(name) {
-        Instrument.allInstruments()
+        Instrument.allInstruments().forEach(i => {
+            songData.song.instruments_attributes.push({
+                name: i.name,
+                instrument: i.instrument,
+                notes: JSON.stringify(i.soundBoard),
+                octave: pitches.indexOf(i.trackArr)
+            })
+        })
+
+        return songData
+    }
+
+    static newSong() {
+        const configObject = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(BackendHandler.songData())
+        }
+
+        fetch(url, configObject)
+        .then(resp => {
+            Instrument.emptyInstruments()
+            BackendHandler.fetchSongs()
+        })
+        .catch(error => console.log(error))
+    }
+
+    static updateSong() {
+        const configObject = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(BackendHandler.songData())
+        }
+
+        const id = DOMHandler.activeSong().id.split("-")[1]
+
+        fetch(url+id, configObject)
+        .then(resp => {
+            Instrument.emptyInstruments()
+            BackendHandler.fetchSongs()
+        })
+        .catch(error => console.log(error))
+    }
+
+    static deleteSong() {
+        const configObject = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        }
+
+        const id = DOMHandler.activeSong().id.split("-")[1]
+
+        fetch(url+id, configObject)
+        .then(resp => {
+            Instrument.emptyInstruments()
+            BackendHandler.fetchSongs()
+        })
+        .catch(error => console.log(error))
     }
 
     static loadSong(id) {
@@ -381,8 +482,10 @@ function setupAudio() {
 
     // Save Panel Buttons
     document.querySelector("#play-song-button").addEventListener('click', () => !DOMHandler.savePanelFrozen() ? Player.play(true) : 0)
-    document.querySelector("#save-new-button").addEventListener('click', () => !DOMHandler.savePanelFrozen() ? BackendHandler.saveNew() : 0)
-    document.querySelector("#save-update-button").addEventListener('click', () => !DOMHandler.savePanelFrozen() ? BackendHandler.saveUpdate() : 0)
+    document.querySelector("#new-song-button").addEventListener('click', () => !DOMHandler.savePanelFrozen() ? BackendHandler.newSong() : 0)
+    document.querySelector("#update-song-button").addEventListener('click', () => !DOMHandler.savePanelFrozen() ? BackendHandler.updateSong() : 0)
+    document.querySelector("#delete-song-button").addEventListener('click', () => !DOMHandler.savePanelFrozen() ? BackendHandler.deleteSong() : 0)
+
     document.querySelector("#stop-button").addEventListener('click', () => !DOMHandler.savePanelFrozen() ? Player.stop() : 0)
 
     // Edit Panel Buttons
@@ -390,7 +493,7 @@ function setupAudio() {
     document.querySelector("form#edit-song-name-form").addEventListener('submit', (event) => {
         if (!DOMHandler.editPanelFrozen()) {
             const newName = document.querySelector("input#edit-song-name-form-text").value
-            BackendHandler.saveSong(newName)
+            Instrument.setName(newName)
         }
 
         event.target.reset()

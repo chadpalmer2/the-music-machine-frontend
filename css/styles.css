@@ -21,7 +21,7 @@ html, body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    flex: 7;
+    flex: 8;
 }
 
 #title-container {
@@ -47,7 +47,7 @@ html, body {
 }
 
 #machine-center-panel {
-    flex: 4;
+    flex: 3;
     margin: auto;
 }
 

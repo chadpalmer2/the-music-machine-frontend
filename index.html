@@ -31,12 +31,15 @@
                         <div id="play-buttons">
                             <button id="play-song-button">Play Song</button>
                             <br>
-                            <button id="save-new-button">Save as New Song</button>
+                            <button id="new-song-button">Save as New Song</button>
                             <br>
-                            <button id="save-update-button">Overwrite Existing Song</button>
                         </div>
                         <div id="stop-button">
                             <button class="hidden" id="stop-button">Stop</button>
+                        </div>
+                        <div id="update-buttons">
+                            <button id="update-song-button">Update Existing Song</button>
+                            <button id="delete-song-button">Delete Song</button>
                         </div>
                     </div>
                     <div id="machine-center-panel">
@@ -44,6 +47,7 @@
                         <div class="soundboard-hidden" id="soundboard"></div>
                     </div>
                     <div id="machine-edit-panel">
+                        <div id="song-name-container"></div> 
                         <form id="edit-song-name-form">
                             <input type="text" id="edit-song-name-form-text">
                             <input class="button" type="submit" value="Change Song Name">
@@ -58,10 +62,6 @@
                         <div id="octave-changer">
                             <button id="octave-up-button">Octave Up</button>
                             <button id="octave-down-button">Octave Down</button>
-                        </div>
-                        <div id="volume-changer">
-                            <button id="volume-up-button">Volume Up</button>
-                            <button id="volume-down-button">Volume Down</button>
                         </div>
                         <br>
                         <form id="edit-instrument-name-form">
